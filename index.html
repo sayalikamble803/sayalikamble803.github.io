@@ -1,0 +1,1040 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Sayali Kamble | Aspiring Software Engineer</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #f4f6fb;
+        --fg: #10182b;
+        --mut: #56607a;
+        --card: #ffffff;
+        --bd: #dde3f0;
+        --a: #e8590c;
+        --b: #0f766e;
+        --glow: rgba(232, 89, 12, 0.14);
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0c1426;
+          --fg: #eef2fb;
+          --mut: #9aa6c2;
+          --card: #131e36;
+          --bd: #24324f;
+          --a: #ffa94d;
+          --b: #5eead4;
+          --glow: rgba(255, 169, 77, 0.12);
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0c1426;
+        --fg: #eef2fb;
+        --mut: #9aa6c2;
+        --card: #131e36;
+        --bd: #24324f;
+        --a: #ffa94d;
+        --b: #5eead4;
+        --glow: rgba(255, 169, 77, 0.12);
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(64px + env(safe-area-inset-top, 0px));
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font:
+          16px/1.65 Inter,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Bricolage Grotesque", Inter, system-ui, sans-serif;
+        line-height: 1.08;
+        margin: 0;
+      }
+      a {
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 2px solid var(--a);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+      .glow {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background: radial-gradient(
+          520px circle at var(--mx, 70%) var(--my, 20%),
+          var(--glow),
+          transparent 70%
+        );
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 5vw;
+        padding-top: calc(14px + env(safe-area-inset-top, 0px));
+        background: color-mix(in srgb, var(--bg) 85%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--bd);
+      }
+      nav b {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 1.15rem;
+      }
+      .links {
+        display: flex;
+        gap: 22px;
+        align-items: center;
+      }
+      .links a {
+        text-decoration: none;
+        color: var(--mut);
+        font-size: 0.92rem;
+        transition: color 0.2s;
+      }
+      .links a:hover {
+        color: var(--fg);
+      }
+      .tg {
+        border: 1px solid var(--bd);
+        background: var(--card);
+        color: var(--fg);
+        border-radius: 99px;
+        padding: 6px 12px;
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.85rem;
+      }
+      main {
+        position: relative;
+        z-index: 1;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 5vw;
+      }
+      section {
+        padding: 84px 0 12px;
+      }
+      h2 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        margin-bottom: 28px;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 48px;
+        align-items: center;
+        min-height: calc(100vh - 70px);
+        padding: 40px 0;
+      }
+      .hero h1 {
+        font-size: clamp(2.6rem, 7vw, 4.9rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+      .hero h1 span {
+        display: block;
+        overflow: hidden;
+      }
+      .hero h1 span i {
+        display: block;
+        font-style: normal;
+        transform: translateY(105%);
+        animation: up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+      .hero h1 span:nth-child(2) i {
+        animation-delay: 0.12s;
+        color: var(--a);
+      }
+      @keyframes up {
+        to {
+          transform: none;
+        }
+      }
+      .role {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 1.05rem;
+        margin: 22px 0 14px;
+        min-height: 1.6em;
+      }
+      .caret {
+        display: inline-block;
+        width: 9px;
+        height: 1.1em;
+        background: var(--a);
+        vertical-align: -3px;
+        margin-left: 3px;
+        animation: bl 1s steps(1) infinite;
+      }
+      @keyframes bl {
+        50% {
+          opacity: 0;
+        }
+      }
+      .lead {
+        color: var(--mut);
+        max-width: 46ch;
+        margin: 0 0 26px;
+        opacity: 0;
+        animation: fade 0.8s 0.6s forwards;
+      }
+      @keyframes fade {
+        to {
+          opacity: 1;
+        }
+      }
+      .cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fade 0.8s 0.8s forwards;
+      }
+      .btn {
+        padding: 12px 22px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 500;
+        border: 1px solid var(--bd);
+        background: var(--card);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .btn.p {
+        background: var(--a);
+        border-color: var(--a);
+        color: #101010;
+      }
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px var(--glow);
+      }
+      .photo {
+        position: relative;
+        width: min(340px, 80%);
+        aspect-ratio: 1;
+        margin: 0 auto;
+        border-radius: 50%;
+        padding: 7px;
+        background: conic-gradient(from 0deg, var(--a), var(--b), var(--a));
+        animation: spin 8s linear infinite;
+      }
+      .photo > div {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: var(--card);
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        animation: spin 8s linear infinite reverse;
+      }
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .photo em {
+        font:
+          800 4.5rem "Bricolage Grotesque",
+          sans-serif;
+        font-style: normal;
+        color: var(--a);
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .log {
+        margin-top: 26px;
+        border: 1px solid var(--bd);
+        border-radius: 12px;
+        background: var(--card);
+        padding: 12px 14px;
+        font:
+          0.78rem/1.7 "IBM Plex Mono",
+          monospace;
+        color: var(--mut);
+        height: 118px;
+        overflow: hidden;
+        position: relative;
+      }
+      .log p {
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        animation: fade 0.4s;
+      }
+      .log .ok {
+        color: var(--b);
+      }
+      .log::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 36px;
+        background: linear-gradient(transparent, var(--card));
+      }
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+      .about p {
+        margin: 0 0 14px;
+        color: var(--mut);
+      }
+      .facts {
+        display: grid;
+        gap: 12px;
+        align-content: start;
+      }
+      .fact {
+        border-left: 3px solid var(--a);
+        padding: 2px 0 2px 14px;
+      }
+      .fact b {
+        display: block;
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 1.1rem;
+      }
+      .fact span {
+        color: var(--mut);
+        font-size: 0.92rem;
+      }
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 22px;
+      }
+      .sk h3 {
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chip {
+        border: 1px solid var(--bd);
+        background: var(--card);
+        border-radius: 99px;
+        padding: 4px 13px;
+        font-size: 0.86rem;
+        transition:
+          transform 0.2s,
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .chip:hover {
+        transform: translateY(-3px) rotate(-2deg);
+        border-color: var(--a);
+        color: var(--a);
+      }
+      .tl {
+        position: relative;
+        padding-left: 26px;
+        border-left: 2px solid var(--bd);
+      }
+      .tl::before {
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: 0;
+        width: 2px;
+        height: var(--prog, 0%);
+        background: var(--a);
+      }
+      .job {
+        position: relative;
+        margin-bottom: 30px;
+      }
+      .job::before {
+        content: "";
+        position: absolute;
+        left: -34px;
+        top: 8px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--a);
+        box-shadow: 0 0 0 5px var(--glow);
+      }
+      .job h3 {
+        font-size: 1.3rem;
+      }
+      .job .m {
+        color: var(--mut);
+        font-size: 0.92rem;
+        margin: 2px 0 12px;
+      }
+      .m a,
+      .about p a {
+        color: var(--a);
+        text-underline-offset: 3px;
+      }
+      .job h4 {
+        margin: 16px 0 4px;
+        font-size: 0.98rem;
+      }
+      .job ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--mut);
+      }
+      .job li {
+        margin-bottom: 6px;
+      }
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 22px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--bd);
+        border-radius: 16px;
+        padding: 24px;
+        transition:
+          transform 0.15s,
+          border-color 0.2s;
+        transform: perspective(800px) rotateX(var(--rx, 0deg))
+          rotateY(var(--ry, 0deg));
+      }
+      .card:hover {
+        border-color: var(--a);
+      }
+      .card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+      }
+      .card p {
+        color: var(--mut);
+        margin: 0 0 14px;
+      }
+      .contact {
+        text-align: center;
+        padding-bottom: 90px;
+      }
+      .contact h2 {
+        font-size: clamp(2rem, 6vw, 3.6rem);
+      }
+      .contact p {
+        color: var(--mut);
+        max-width: 48ch;
+        margin: 0 auto 26px;
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      footer {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: var(--mut);
+        font-size: 0.85rem;
+        padding: 0 0 40px;
+      }
+      .rv {
+        opacity: 0;
+        transform: translateY(26px);
+        transition:
+          opacity 0.7s,
+          transform 0.7s;
+      }
+      .rv.in {
+        opacity: 1;
+        transform: none;
+      }
+      @media (max-width: 760px) {
+        .hero,
+        .about {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          min-height: 0;
+        }
+        .photo {
+          order: -1;
+          width: min(240px, 70%);
+        }
+        .links a:not(.tg) {
+          display: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition: none !important;
+        }
+        .hero h1 span i,
+        .lead,
+        .cta {
+          transform: none;
+          opacity: 1;
+        }
+        .rv {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+    <script>
+      (function () {
+        var h = React.createElement,
+          useState = React.useState,
+          useEffect = React.useEffect,
+          useRef = React.useRef;
+        /* Photo file next to index.html. Set to "" to show initials instead. */
+        var PHOTO = "photo.jpg";
+        var ROLES = [
+          "Aspiring Software Engineer",
+          "Python & Flask Developer",
+          "Cloud and DevOps Learner",
+          "Quick learner, team player",
+        ];
+        var LOGS = [
+          ["POST /chat 200 OK  intent=admission", 1],
+          ["nltk  tokenized query  3 keywords", 0],
+          ["flask  GET / 200 OK  22ms", 1],
+          ["aws  ec2 instance running", 1],
+          ["apache  serving /var/www/html", 0],
+          ["netlify  deploy published", 1],
+          ["github  push to main", 0],
+          ["json  knowledge base loaded", 0],
+          ["ssh  connected to ubuntu", 0],
+          ["http  port 80 allowed", 1],
+        ];
+        var SKILLS = [
+          ["Programming", ["Python", "C#", "SQL"]],
+          [
+            "Core concepts",
+            [
+              "Data structures",
+              "Arrays and strings",
+              "Stack and queue basics",
+              "OOP",
+              "SDLC",
+            ],
+          ],
+          ["Web", ["HTML", "CSS", "JavaScript", "Bootstrap"]],
+          [
+            "Tools and platforms",
+            [
+              "Git",
+              "GitHub",
+              "AWS EC2",
+              "AWS S3",
+              "Docker (basic)",
+              "Linux (Ubuntu)",
+            ],
+          ],
+          [
+            "Working style",
+            ["Team collaboration", "Quick learner", "Documentation"],
+          ],
+        ];
+        var LINKS = { mail: "mailto:sayalikamble361@gmail.com" };
+
+        function Reveal(p) {
+          var r = useRef(null);
+          useEffect(function () {
+            var o = new IntersectionObserver(
+              function (e) {
+                e.forEach(function (x) {
+                  if (x.isIntersecting) {
+                    x.target.classList.add("in");
+                    o.unobserve(x.target);
+                  }
+                });
+              },
+              { threshold: 0.12 },
+            );
+            o.observe(r.current);
+            return function () {
+              o.disconnect();
+            };
+          }, []);
+          return h(
+            p.tag || "div",
+            {
+              ref: r,
+              className: "rv " + (p.className || ""),
+              style: { transitionDelay: (p.delay || 0) + "ms" },
+            },
+            p.children,
+          );
+        }
+
+        function Typing() {
+          var s = useState(""),
+            t = s[0],
+            set = s[1];
+          useEffect(function () {
+            var i = 0,
+              j = 0,
+              del = false,
+              id;
+            function tick() {
+              var w = ROLES[i];
+              j += del ? -1 : 1;
+              set(w.slice(0, j));
+              var d = del ? 35 : 70;
+              if (!del && j === w.length) {
+                del = true;
+                d = 1400;
+              } else if (del && j === 0) {
+                del = false;
+                i = (i + 1) % ROLES.length;
+                d = 300;
+              }
+              id = setTimeout(tick, d);
+            }
+            tick();
+            return function () {
+              clearTimeout(id);
+            };
+          }, []);
+          return h(
+            "div",
+            { className: "role" },
+            "> " + t,
+            h("span", { className: "caret" }),
+          );
+        }
+
+        function Log() {
+          var s = useState([0, 1, 2]),
+            idx = s[0],
+            set = s[1];
+          useEffect(function () {
+            var n = 3,
+              id = setInterval(function () {
+                set(function (a) {
+                  return a.slice(1).concat([n++]);
+                });
+              }, 1400);
+            return function () {
+              clearInterval(id);
+            };
+          }, []);
+          return h(
+            "div",
+            { className: "log", "aria-hidden": "true" },
+            idx.map(function (n) {
+              var l = LOGS[n % LOGS.length];
+              return h(
+                "p",
+                { key: n },
+                h(
+                  "span",
+                  { className: l[1] ? "ok" : "" },
+                  l[1] ? "200 " : "evt ",
+                ),
+                l[0],
+              );
+            }),
+          );
+        }
+
+        function ResumeBtn(p) {
+          return h(
+            "a",
+            {
+              className: p.cls,
+              href: "Sayali_Kamble_Resume.pdf",
+              download: "Sayali_Kamble_Resume.pdf",
+            },
+            "Download resume",
+          );
+        }
+
+        function Hero() {
+          return h(
+            "section",
+            { className: "hero", id: "top" },
+            h(
+              "div",
+              null,
+              h(
+                "h1",
+                null,
+                h("span", null, h("i", null, "Sayali")),
+                h("span", null, h("i", null, "Kamble")),
+              ),
+              h(Typing),
+              h(
+                "p",
+                { className: "lead" },
+                "I’m an aspiring software engineer who builds Python and Flask apps and deploys them on AWS, with a solid base in data structures, SQL and DevOps basics.",
+              ),
+              h(
+                "div",
+                { className: "cta" },
+                h(
+                  "a",
+                  { className: "btn p", href: "#projects" },
+                  "See my work",
+                ),
+                h("a", { className: "btn", href: LINKS.mail }, "Email me"),
+                h(ResumeBtn, { cls: "btn" }),
+              ),
+            ),
+            h(
+              "div",
+              null,
+              h(
+                "div",
+                { className: "photo" },
+                h(
+                  "div",
+                  null,
+                  PHOTO
+                    ? h("img", { src: PHOTO, alt: "Portrait of Sayali Kamble" })
+                    : h("em", null, "SK"),
+                ),
+              ),
+              h(Log),
+            ),
+          );
+        }
+        function About() {
+          return h(
+            "section",
+            { id: "about" },
+            h(Reveal, { tag: "h2" }, "About"),
+            h(
+              "div",
+              { className: "about" },
+              h(
+                Reveal,
+                null,
+                h(
+                  "p",
+                  null,
+                  "I enjoy turning ideas into working software. My projects include a Python and Flask chatbot that answers college enquiries, a website hosted on AWS EC2, and a site deployed automatically through GitHub and Netlify.",
+                ),
+                h(
+                  "p",
+                  null,
+                  "I’m looking for an entry-level software role where I can keep learning and contribute to application development.",
+                ),
+              ),
+              h(
+                Reveal,
+                { className: "facts", delay: 120 },
+                [
+                  ["Based in Latur", "Maharashtra"],
+                  [
+                    "BCA, 83.12%",
+                    "Swami Ramanand Teerth Marathwada University, Nanded",
+                  ],
+                  ["Python and Flask", "Built an NLP chatbot with NLTK"],
+                  ["Cloud basics", "AWS EC2 and S3, Docker (basic), Linux"],
+                ].map(function (f) {
+                  return h(
+                    "div",
+                    { className: "fact", key: f[0] },
+                    h("b", null, f[0]),
+                    h("span", null, f[1]),
+                  );
+                }),
+              ),
+            ),
+          );
+        }
+        function Skills() {
+          return h(
+            "section",
+            { id: "skills" },
+            h(Reveal, { tag: "h2" }, "Skills"),
+            h(
+              "div",
+              { className: "skills" },
+              SKILLS.map(function (g, i) {
+                return h(
+                  Reveal,
+                  { className: "sk", key: g[0], delay: i * 60 },
+                  h("h3", null, g[0]),
+                  h(
+                    "div",
+                    { className: "chips" },
+                    g[1].map(function (c) {
+                      return h("span", { className: "chip", key: c }, c);
+                    }),
+                  ),
+                );
+              }),
+            ),
+          );
+        }
+
+        function Education() {
+          var r = useRef(null);
+          useEffect(function () {
+            function f() {
+              var b = r.current.getBoundingClientRect(),
+                p = (innerHeight * 0.6 - b.top) / b.height;
+              r.current.style.setProperty(
+                "--prog",
+                Math.max(0, Math.min(1, p)) * 100 + "%",
+              );
+            }
+            f();
+            addEventListener("scroll", f, { passive: true });
+            return function () {
+              removeEventListener("scroll", f);
+            };
+          }, []);
+          function E(t, m, d) {
+            return h(
+              Reveal,
+              { className: "job", key: t },
+              h("h3", null, t),
+              h("div", { className: "m" }, m),
+              h("p", { style: { margin: 0, color: "var(--mut)" } }, d),
+            );
+          }
+          return h(
+            "section",
+            { id: "education" },
+            h(Reveal, { tag: "h2" }, "Education"),
+            h(
+              "div",
+              { className: "tl", ref: r },
+              E(
+                "BCA",
+                "Swami Ramanand Teerth Marathwada University, Nanded",
+                "Pursuing, 83.12%",
+              ),
+              E("HSC, 2023", "Maharashtra State Board of SHSE, Pune", "61.00%"),
+              E("SSC, 2020", "Maharashtra State Board of SHSE, Pune", "85.40%"),
+            ),
+          );
+        }
+        function Card(p) {
+          function mv(e) {
+            var b = e.currentTarget.getBoundingClientRect(),
+              x = (e.clientX - b.left) / b.width - 0.5,
+              y = (e.clientY - b.top) / b.height - 0.5;
+            e.currentTarget.style.setProperty("--ry", x * 8 + "deg");
+            e.currentTarget.style.setProperty("--rx", -y * 8 + "deg");
+          }
+          function lv(e) {
+            e.currentTarget.style.setProperty("--ry", "0deg");
+            e.currentTarget.style.setProperty("--rx", "0deg");
+          }
+          return h(
+            Reveal,
+            { delay: p.delay },
+            h(
+              "div",
+              { className: "card", onMouseMove: mv, onMouseLeave: lv },
+              h("h3", null, p.t),
+              h("p", null, p.d),
+              h(
+                "div",
+                { className: "chips" },
+                p.c.map(function (c) {
+                  return h("span", { className: "chip", key: c }, c);
+                }),
+              ),
+              p.l
+                ? h(
+                    "p",
+                    { style: { margin: "16px 0 0" } },
+                    h(
+                      "a",
+                      { href: p.l, target: "_blank", rel: "noopener" },
+                      "View on GitHub",
+                    ),
+                  )
+                : null,
+            ),
+          );
+        }
+
+        function Projects() {
+          return h(
+            "section",
+            { id: "projects" },
+            h(Reveal, { tag: "h2" }, "Projects"),
+            h(
+              "div",
+              { className: "projects" },
+              h(Card, {
+                t: "AI-Powered College Enquiry Chatbot",
+                d: "A web chatbot that answers college enquiries automatically. A Flask backend handles requests, NLTK tokenization and keyword analysis match each question to an intent, and a JSON knowledge base lets answers be updated without changing code. The chat interface runs in real time.",
+                c: ["Python", "Flask", "NLTK", "HTML", "CSS", "JavaScript"],
+                delay: 0,
+              }),
+              h(Card, {
+                t: "AWS EC2 Website Hosting",
+                d: "Launched a free-tier Ubuntu instance on AWS, connected over SSH, installed Apache and deployed a static site. Configured security groups and firewalls for HTTP and SSH, and practiced starting, stopping and monitoring the instance.",
+                c: ["AWS EC2", "Ubuntu", "Apache", "SSH"],
+                delay: 120,
+              }),
+              h(Card, {
+                t: "College Website Deployment",
+                d: "A responsive college website built with HTML, CSS and JavaScript, tested across browsers, and deployed automatically by connecting GitHub to Netlify.",
+                c: ["HTML", "CSS", "JavaScript", "GitHub", "Netlify"],
+                delay: 240,
+              }),
+            ),
+          );
+        }
+        function Contact() {
+          return h(
+            "section",
+            { id: "contact", className: "contact" },
+            h(Reveal, { tag: "h2" }, "Let’s connect"),
+            h(
+              Reveal,
+              { tag: "p" },
+              "I’m looking for an entry-level software role. The quickest way to reach me is email.",
+            ),
+            h(
+              Reveal,
+              { className: "row" },
+              h(
+                "a",
+                { className: "btn p", href: LINKS.mail },
+                "sayalikamble361@gmail.com",
+              ),
+              h(ResumeBtn, { cls: "btn" }),
+            ),
+          );
+        }
+        function App() {
+          var s = useState(function () {
+              try {
+                return localStorage.getItem("theme");
+              } catch (e) {
+                return null;
+              }
+            }),
+            th = s[0],
+            setTh = s[1];
+          useEffect(
+            function () {
+              if (th) document.documentElement.setAttribute("data-theme", th);
+              else document.documentElement.removeAttribute("data-theme");
+            },
+            [th],
+          );
+          useEffect(function () {
+            function m(e) {
+              document.documentElement.style.setProperty(
+                "--mx",
+                e.clientX + "px",
+              );
+              document.documentElement.style.setProperty(
+                "--my",
+                e.clientY + "px",
+              );
+            }
+            addEventListener("pointermove", m);
+            return function () {
+              removeEventListener("pointermove", m);
+            };
+          }, []);
+          function toggle() {
+            var dark =
+              document.documentElement.getAttribute("data-theme") === "dark" ||
+              (!th && matchMedia("(prefers-color-scheme:dark)").matches);
+            var n = dark ? "light" : "dark";
+            setTh(n);
+            try {
+              localStorage.setItem("theme", n);
+            } catch (e) {}
+          }
+          return h(
+            React.Fragment,
+            null,
+            h("div", { className: "glow" }),
+            h(
+              "nav",
+              null,
+              h("b", null, "SK"),
+              h(
+                "div",
+                { className: "links" },
+                h("a", { href: "#about" }, "About"),
+                h("a", { href: "#skills" }, "Skills"),
+                h("a", { href: "#education" }, "Education"),
+                h("a", { href: "#projects" }, "Projects"),
+                h("a", { href: "#contact" }, "Contact"),
+                h(
+                  "button",
+                  {
+                    className: "tg",
+                    onClick: toggle,
+                    "aria-label": "Toggle light and dark theme",
+                  },
+                  "Theme",
+                ),
+              ),
+            ),
+            h(
+              "main",
+              null,
+              h(Hero),
+              h(About),
+              h(Skills),
+              h(Education),
+              h(Projects),
+              h(Contact),
+            ),
+            h("footer", null, "Sayali Kamble, Latur"),
+          );
+        }
+        ReactDOM.createRoot(document.getElementById("root")).render(h(App));
+      })();
+    </script>
+  </body>
+</html>
